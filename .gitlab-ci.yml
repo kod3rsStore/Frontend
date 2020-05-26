@@ -1,0 +1,23 @@
+image: node:12
+stages:
+    - install
+    - test
+install-dependencies:
+    stage: install
+    script:
+        - npm install
+    artifacts:
+        expire_in: 1hr
+        paths:
+            - node_modules/
+    cache:
+        paths:
+            - node_modules/
+test-apps:
+    stage: test
+    dependencies:
+        - install-dependencies
+    before_script:
+        - apt-get upgrade && apt-get update
+    script:
+        - npm run test:ci        

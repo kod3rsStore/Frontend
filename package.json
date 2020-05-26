@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "DEBUG=app:* nodemon src/server/index",
-    "start": "NODE_ENV=production nodemon src/server/index"
+    "start": "NODE_ENV=production nodemon src/server/index",
+    "test:ci": "echo \"Error: no test specified\" && exit 0"
   },
   "repository": {
     "type": "git",
