@@ -1,0 +1,42 @@
+.pay1{
+padding: 15px;
+}
+.pay1__item2{
+    margin: 5%;
+}
+.pay1__item2-btn{
+    width:90%;
+    background-color: rgb(255,153,0);
+    border: 0px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+.pay1__cont2{
+    display: grid;
+    grid-template-areas: "imag title" "imag txt";
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 25% 75%;
+}
+.pay1__cont2-sub1-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.pay1__cont2-sub1{
+    grid-area: imag;
+}
+.pay1__cont2-sub2{
+    grid-area: title;
+}
+.pay1__cont2-sub2>p{
+    font-size: 18px;
+    font-weight: bold;
+}
+.pay1__cont2-sub3{
+    grid-area: txt;
+}
+.pay1__item4-img{
+    width: 50%;
+    height: 50%;
+    object-fit: cover;  
+}
