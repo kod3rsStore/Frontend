@@ -1,10 +1,6 @@
 import React from 'react';
 import '../Styles/Products2.css';
 
-function shoot() {
-  alert("Button operational");
-}
-
 function Products1() {
   return (
     <div className="prod1">
