@@ -1,14 +1,18 @@
 import React from 'react';
 import '../Styles/ProductDtl.css';
 
+function shoot() {
+  alert("Button operational");
+}
+
 function ProductDtl() {
   return (
-    <div className="cont1">
-      <div className="item1">item1</div>
-      <div className="item2">item2</div>
-      <div className="item3">item3</div>
-      <div className="item4">item4</div>
-      <div className="item5">item5</div>
+    <div className="prodtl">
+      <div className="prodtl__item1"><p>Var Product Name</p></div>
+      <div className="prodtl__item2"><img  src="/products/accesorio 1.jpg" className="prodtl__item2-img" alt="demo"  /></div>
+      <div className="prodtl__item3"><img  src="/img/cuantityLgt.png" className="prodtl__item3-img" alt="demo"  /></div>
+      <div className="prodtl__item4"><button onClick={shoot} className="prodtl__btn">Add to cart</button></div>
+      <div className="prodtl__item4"><button onClick={shoot} className="prodtl__btn">Buy now</button></div>
     </div>
   );
 }
