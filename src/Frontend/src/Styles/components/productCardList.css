@@ -1,23 +1,26 @@
 .Card-product{
     display: contents;
-    width: 80%;
+    width: 70%;
 }
 
 .Card-container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 5px;
     border-radius: 15px;
-    margin: 10px;
-    max-width: 150px;
+    margin: 5px;
+    max-width: 120px;
     height: fit-content;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     background-color: rgba(240,240,240, 0.7);
 }
-
+.Card-image{
+    width: 100%;
+    text-align: center;
+}
 .Card-image img{
-    width: 140px;
+    width: 110px;
     object-fit: cover;
 }
 

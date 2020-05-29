@@ -10,12 +10,12 @@ const FeaturedProductCard = (props) => {
         <section className="Card-featured-product">
             <div className="Card-featured-container">                
                 <div className="Card-featured-image">
-                    <img src="https://dummyimage.com/300x300/16c706/fff" alt="our goods"/> 
+                    <img src={url_photo} alt="our goods"/> 
                 </div>
                 
                 <div className="Card-featured-info">
                     <Link to="/productDetail">
-                        <div>A belt for every season</div>
+                        <div>{title}</div>
                     </Link>
                 </div>
             </div>
