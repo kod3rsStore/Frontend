@@ -10,7 +10,7 @@ function Products6() {
     <div className="prod">
       <div className="prod__item1">Filter by</div>
       <div className="prod__item2">
-        <select class="prod__item2-filter" name="filter" id="filter">
+        <select className="prod__item2-filter" name="filter" id="filter">
         <option value="category">Category</option>
         <option value="price">Price</option>
 		    </select>

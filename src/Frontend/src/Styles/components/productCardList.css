@@ -1,0 +1,26 @@
+.Card-product{
+    display: contents;
+    width: 80%;
+}
+
+.Card-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 10px;
+    max-width: 150px;
+    height: fit-content;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: rgba(240,240,240, 0.7);
+}
+
+.Card-image img{
+    width: 140px;
+    object-fit: cover;
+}
+
+.Card-add-to-cart {
+    align-self: center;
+}
