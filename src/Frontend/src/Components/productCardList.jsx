@@ -2,12 +2,14 @@ import React from 'react';
 import '../Styles/components/productCardList.css';
 import { Link } from 'react-router-dom';
 
+const url_dummy_img = "https://dummyimage.com/300x300/16c706/fff";
+
 const ProductCardList = (props) => {
-    const { title, description, cost, url_photo, id} = props; 
+    const { title, description, cost, url, id_products} = props; 
     
     function handleHandleAddToCartClick(e) {
         e.preventDefault();
-        console.log('The link was clicked.'+id);
+        console.log('The link was clicked.'+id_products);
 
       }
 
@@ -17,7 +19,7 @@ const ProductCardList = (props) => {
             <div className="Card-container">
                 <Link to="/productDetail">
                     <div className="Card-image">
-                        <img src={url_photo} alt="our goods"/> 
+                        <img src={url? url+'png':url_dummy_img} alt="our goods"/> 
                     </div>
                     <div className="Card-info">
                         <div>{title}</div>

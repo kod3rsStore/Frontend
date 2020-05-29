@@ -1,6 +1,6 @@
 .Card-product{
     display: contents;
-    width: 70%;
+    width: 80%;
 }
 
 .Card-container{
@@ -8,22 +8,31 @@
     flex-direction: column;
     align-items: center;
     padding: 5px;
-    border-radius: 15px;
-    margin: 5px;
-    max-width: 120px;
+    border-radius: 5px;
+    margin: 10px;
+    max-width: 130px;
     height: fit-content;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     background-color: rgba(240,240,240, 0.7);
 }
 .Card-image{
     width: 100%;
+    height: 120px;
     text-align: center;
 }
 .Card-image img{
-    width: 110px;
+    width: 100%;
+    height: 120px;
     object-fit: cover;
 }
 
 .Card-add-to-cart {
     align-self: center;
+}
+
+.Card-add-to-cart button{
+    height: 35px;
+    width: 110px;
+    padding: 5px;
+    margin: 10px;
 }

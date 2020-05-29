@@ -8,8 +8,8 @@ import '../Styles/components/media.css';
 const listProducts = (products) => {
   return (
     <div className="products-list-container">
-        {products.products.map( item => 
-          <ProductCardList key={item.id} {...item} /> 
+        {products.body.map( item => 
+          <ProductCardList key={item.id_products} {...item} /> 
         )} 
     </div>
   );
