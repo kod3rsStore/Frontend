@@ -18,7 +18,7 @@ import Cart2 from './Components/Cart2.js';
 import User1 from './Components/User1.js';
 import User2 from './Components/User2.js';
 import Menu1 from './Components/Menu1.js';
-import cardProduct from './Components/productCardList.jsx';
+import featuredProduct from './Components/featuredProductCard';
 import listProducts from './Containers/listProducts.jsx';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
@@ -46,7 +46,7 @@ class App extends Component{
 					<Switch>
 						<Route path="/" exact component={Home}/>
 						<Route path="/home" component={Home}/>
-						<Route path="/cardproduct" component={cardProduct} />
+						<Route path="/featuredproduct" component={featuredProduct} />
 						<Route path="/cardProductList" component={listProducts} />
 						<Route path="/products2" component={Products2}/>
 						<Route path="/products4" component={Products4}/>
