@@ -26,7 +26,7 @@ class App extends Component{
 		return(
 			<div>
 				<div className="hdr">
-					<div className="hd"><a href="https://twitter.com"><img src="/img/menuLgt.png" className="icon" alt="twitter" /></a></div>
+					<div className="hd"><a href="/menu1" target="_self"><img src="/img/menuLgt.png" className="icon" alt="twitter" /></a></div>
 					<div className=""><img id="logo" src="/img/logo1.png" alt=""/></div>
 					<a href="https://google.com" className="hdh">Home</a>
 					<a href="https://google.com" className="hdh">Login</a>

@@ -62,17 +62,6 @@
     object-fit: cover;
 }
 
-.home__cont2-btn{
-    background-color: rgb(255,153,0);
-    width: 100%;
-    border: 0px;
-    border-radius: 15px;
-    font-size: 30px;
-}
-.home__cont2-btn:focus{
-    background: url(button2.png);	
-}
-
 .home__cont2-box{
     position: relative;
     text-align: center;

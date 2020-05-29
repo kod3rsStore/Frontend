@@ -1,5 +1,8 @@
 import React from 'react';
 import '../Styles/ProductDtl.css';
+import Button from './Atoms/Button';
+import Banner from './Atoms/Banner';
+import Spinner from './Atoms/Spinner';
 
 function shoot() {
   alert("Button operational");
@@ -8,11 +11,11 @@ function shoot() {
 function ProductDtl() {
   return (
     <div className="prodtl">
-      <div className="prodtl__item1"><p>Var Product Name</p></div>
+      <Banner name={'Var Product Name'} />
       <div className="prodtl__item2"><img  src="/products/accesorio 1.jpg" className="prodtl__item2-img" alt="demo"  /></div>
-      <div className="prodtl__item3"><img  src="/img/cuantityLgt.png" className="prodtl__item3-img" alt="demo"  /></div>
-      <div className="prodtl__item4"><button onClick={shoot} className="prodtl__btn">Add to cart</button></div>
-      <div className="prodtl__item4"><button onClick={shoot} className="prodtl__btn">Buy now</button></div>
+      <Spinner />
+      <div className="prodtl__item4"><Button clic={()=>shoot()} name={'Add to cart'} /></div>
+      <div className="prodtl__item4"><Button clic={()=>shoot()} name={'Buy Now'} /></div>
     </div>
   );
 }

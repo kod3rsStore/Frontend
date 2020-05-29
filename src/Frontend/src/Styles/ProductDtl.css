@@ -1,14 +1,3 @@
-.prodtl__item1{
-    grid-area: title;
-    background-color: rgb(28,25,25);
-    color: white;
-    font-size: 12px;
-    height: 36px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
 .prodtl__item2-img{
     width: 100vw;
     object-fit: contain;
@@ -22,11 +11,5 @@
     grid-area: bn2;
     margin: 15px;
 }
-.prodtl__btn{
-    width:90%;
-    background-color: rgb(255,153,0);
-    border: 0px;
-    border-radius: 5px;
-    font-size: 18px;
-}
+
 
