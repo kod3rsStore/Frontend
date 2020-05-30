@@ -22,7 +22,7 @@ const ProductCardSearchList = (props) => {
                         <Link to={{
                                     pathname: '/productdtl',
                                     product:props
-                                }}><div>{title}</div></Link>
+                                }}   className="Card-search__title"><div>{title}</div></Link>
                         <div>{new_description}</div>
                         <div>{cost} MXN</div>
                     </div>

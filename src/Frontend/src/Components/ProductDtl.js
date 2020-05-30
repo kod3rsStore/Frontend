@@ -1,6 +1,5 @@
 import React from 'react';
 import '../Styles/ProductDtl.css';
-import Button from './Atoms/Button';
 
 import ProductDetailCard from '../Components/productDetailCard'
 

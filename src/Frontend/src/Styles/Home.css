@@ -1,6 +1,6 @@
 .home{
     display: grid;
-    grid-template-areas: "item1" "item2" "cont2";
+    grid-template-areas: "item1" "item3" "item2" "cont2";
     grid-template-columns: 100%;	
     justify-content: center;
     align-items: center;
@@ -12,8 +12,11 @@
     background-color: grey;
 }
 .home__item2{
+    width: 100%;
     grid-area: item2;
     margin: 3%;
+    display: flex;
+    justify-self: center;
 }
 .home__cont2{
     grid-area: cont2;
