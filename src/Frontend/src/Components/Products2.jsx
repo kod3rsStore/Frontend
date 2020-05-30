@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../Styles/Products2.css';
 import ListProductsSearch from '../Containers/listProductsSearch'
+import SearchBar from './SearchBar';
+
+const api_search_products = 'http://127.0.0.1:3005/api/products/search/';
 
 const dataProduct = {
   body: [
@@ -21,9 +24,33 @@ const dataProduct = {
   ]
 }
 
-function Products1() {
+function Products1(word) {
+  const [products, setProducts] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  const current_word = word.location.word;
+  console.log(current_word)
+
+  useEffect(() => {
+    setProducts([]);
+    setIsLoaded(false)
+    fetch(api_search_products+current_word)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setProducts(result);
+          setIsLoaded(true);
+        },
+        (error) => {
+          setError(error);
+        }
+      )
+  }, [current_word])
+
   return (
-    <div>
+    <div className="productsResultSearch">
+      <SearchBar />
       <div className="prod1">
         <div className="prod1__item1">Filter by</div>
         <div className="prod1__item2">
@@ -34,7 +61,11 @@ function Products1() {
         </div>
         <div className="prod1__item3"><p>Var Products Results</p></div>
       </div>
-      <ListProductsSearch {...dataProduct}/>
+      {
+        (isLoaded && products.body.length>0) ?
+          <ListProductsSearch {...products}/>:
+          <div className="notFound">We have not found what you are looking for, try again</div>
+      }
     </div>
   );
 }

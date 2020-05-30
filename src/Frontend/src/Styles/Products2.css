@@ -1,3 +1,11 @@
+.notFound{
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+}
+.productsResultSearch{
+    display: grid;
+}
 .prod1{
     display: grid;
     grid-template-areas: "filter desp" "title title" "produ1 produ1" "produ2 produ2";

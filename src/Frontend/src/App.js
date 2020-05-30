@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
-import Headr from './Components/Header';
+import Header from './Components/Header';
 import Home from './Components/Home.js';
-import Products2 from './Components/Products2.js';
+import Products2 from './Components/Products2';
 import Products4 from './Components/Products4.js';
 import Products6 from './Components/Products6.js';
 import ProductDtl from './Components/ProductDtl.js';
@@ -16,8 +16,6 @@ import Cart2 from './Components/Cart2.js';
 import User1 from './Components/User1.js';
 import User2 from './Components/User2.js';
 import Menu1 from './Components/Menu1.js';
-import featuredProduct from './Components/featuredProductCard';
-import listProducts from './Containers/listProducts.jsx';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 class App extends Component{
@@ -25,7 +23,7 @@ class App extends Component{
 	render(){
 		return(
 			<div>
-				<Headr />
+				<Header />
 				<Router>	
 					<Switch>
 						<Route path="/" exact component={Home}/>

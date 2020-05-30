@@ -17,10 +17,13 @@ const ProductCardList = (props) => {
       
         <section className="Card-product">
             <div className="Card-container">
-                <Link to="/productDetail">
                     <div className="Card-image">
                         <img src={url? url+'png':url_dummy_img} alt="our goods"/> 
                     </div>
+                    <Link to={{
+                                    pathname: '/productdtl',
+                                    product:props
+                                }}>
                     <div className="Card-info">
                         <div>{title}</div>
                         <div>{cost}</div>
