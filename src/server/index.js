@@ -11,8 +11,8 @@ const app = express();
 const userAPI = require('./routes/userAPI');
 const productsAPI = require('./routes/productsAPI.js');
 const categoriesAPI = require('./routes/categoriesAPI');
-//const addressesAPI = require('./routes/addressesAPI');
-//const shopCartAPI = require('./routes/shopCartAPI');
+const addressesAPI = require('./routes/addressesAPI');
+const shopCartAPI = require('./routes/shopCartAPI');
 
 /**
  * Constants of cookies lifetime in seconds
@@ -178,7 +178,7 @@ userAPI(app);
 productsAPI(app);
 categoriesAPI(app);
 addressesAPI(app);
-//shopCartAPI(app);
+shopCartAPI(app);
 
 app.listen(PORT, (err) => {
     if(err) console.error(err);
