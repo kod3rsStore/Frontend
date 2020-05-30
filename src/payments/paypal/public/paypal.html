@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="idbutton">
+
+</div>
+    <!-- Load the required checkout.js script -->
+<script src="https://www.paypalobjects.com/api/checkout.js" data-version-4></script>
+
+<!-- Load the required Braintree components. -->
+<script src="https://js.braintreegateway.com/web/3.39.0/js/client.min.js"></script>
+<script src="https://js.braintreegateway.com/web/3.39.0/js/paypal-checkout.min.js"></script>
+
+<script>
+paypal.Button.render({
+  braintree: braintree,
+  client: {
+    production: 'CLIENT_TOKEN_FROM_SERVER',
+    sandbox: 'eyJ2ZXJzaW9uIjoyLCJlbnZpcm9ubWVudCI6InNhbmRib3giLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiJleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpGVXpJMU5pSXNJbXRwWkNJNklqSXdNVGd3TkRJMk1UWXRjMkZ1WkdKdmVDSXNJbWx6Y3lJNklrRjFkR2g1SW4wLmV5SmxlSEFpT2pFMU9UQTNNakE0TnpFc0ltcDBhU0k2SWpoaE5EbGtabU5oTFRjeE1UZ3ROR1UxTVMwNU5HTTVMVFl5TTJWa04yTTBOR1ptWXlJc0luTjFZaUk2SW1nM2QyTjBNMjAwZERNMWVYQjNNbmdpTENKcGMzTWlPaUpCZFhSb2VTSXNJbTFsY21Ob1lXNTBJanA3SW5CMVlteHBZMTlwWkNJNkltZzNkMk4wTTIwMGRETTFlWEIzTW5naUxDSjJaWEpwWm5sZlkyRnlaRjlpZVY5a1pXWmhkV3gwSWpwbVlXeHpaWDBzSW5KcFoyaDBjeUk2V3lKdFlXNWhaMlZmZG1GMWJIUWlYU3dpYjNCMGFXOXVjeUk2ZTMxOS51bXZrX3hmR1BldnduY2FWdTRpTFdFS3JEVkp4Y0Z1QWJDaVdGOVNhcnBLZ1Jsdi03MFdnWFM2cDF5aFVIamdaRnZWa0hPQmk3MFJsR202TnFsRkJFZyIsImNvbmZpZ1VybCI6Imh0dHBzOi8vYXBpLnNhbmRib3guYnJhaW50cmVlZ2F0ZXdheS5jb206NDQzL21lcmNoYW50cy9oN3djdDNtNHQzNXlwdzJ4L2NsaWVudF9hcGkvdjEvY29uZmlndXJhdGlvbiIsImdyYXBoUUwiOnsidXJsIjoiaHR0cHM6Ly9wYXltZW50cy5zYW5kYm94LmJyYWludHJlZS1hcGkuY29tL2dyYXBocWwiLCJkYXRlIjoiMjAxOC0wNS0wOCJ9LCJjaGFsbGVuZ2VzIjpbXSwiY2xpZW50QXBpVXJsIjoiaHR0cHM6Ly9hcGkuc2FuZGJveC5icmFpbnRyZWVnYXRld2F5LmNvbTo0NDMvbWVyY2hhbnRzL2g3d2N0M200dDM1eXB3MngvY2xpZW50X2FwaSIsImFzc2V0c1VybCI6Imh0dHBzOi8vYXNzZXRzLmJyYWludHJlZWdhdGV3YXkuY29tIiwiYXV0aFVybCI6Imh0dHBzOi8vYXV0aC52ZW5tby5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tIiwiYW5hbHl0aWNzIjp7InVybCI6Imh0dHBzOi8vb3JpZ2luLWFuYWx5dGljcy1zYW5kLnNhbmRib3guYnJhaW50cmVlLWFwaS5jb20vaDd3Y3QzbTR0MzV5cHcyeCJ9LCJ0aHJlZURTZWN1cmVFbmFibGVkIjpmYWxzZSwicGF5cGFsRW5hYmxlZCI6dHJ1ZSwicGF5cGFsIjp7ImRpc3BsYXlOYW1lIjoiSm9obiBEb2UncyBUZXN0IFN0b3JlIiwiY2xpZW50SWQiOiJBWTY0dGFkZG1heE5FOTc2cWlhQ09CSENmd25lN3ozNll3RVp3QVVNdUN3QzlOeE1jdEtWWWxIcXE3c0VlaEIzNV94c3QtOHJQOXRtUmw0NSIsInByaXZhY3lVcmwiOiJodHRwczovL2V4YW1wbGUuY29tIiwidXNlckFncmVlbWVudFVybCI6Imh0dHBzOi8vZXhhbXBsZS5jb20iLCJiYXNlVXJsIjoiaHR0cHM6Ly9hc3NldHMuYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhc3NldHNVcmwiOiJodHRwczovL2NoZWNrb3V0LnBheXBhbC5jb20iLCJkaXJlY3RCYXNlVXJsIjpudWxsLCJhbGxvd0h0dHAiOnRydWUsImVudmlyb25tZW50Tm9OZXR3b3JrIjpmYWxzZSwiZW52aXJvbm1lbnQiOiJvZmZsaW5lIiwidW52ZXR0ZWRNZXJjaGFudCI6ZmFsc2UsImJyYWludHJlZUNsaWVudElkIjoibWFzdGVyY2xpZW50MyIsImJpbGxpbmdBZ3JlZW1lbnRzRW5hYmxlZCI6dHJ1ZSwibWVyY2hhbnRBY2NvdW50SWQiOiJVU0QiLCJjdXJyZW5jeUlzb0NvZGUiOiJVU0QifSwibWVyY2hhbnRJZCI6Img3d2N0M200dDM1eXB3MngiLCJ2ZW5tbyI6Im9mZiJ9'
+  },
+  env: 'sandbox', // or 'sandbox'
+  commit: true, // This will add the transaction amount to the PayPal button
+
+    payment: function (data, actions) {
+        return actions.braintree.create({
+            flow: 'checkout', // Required
+            amount: 10.00, // Required
+            currency: 'USD', // Required
+            enableShippingAddress: true,
+            shippingAddressEditable: false,
+            shippingAddressOverride: {
+            recipientName: 'Scruff McGruff',
+            line1: '1234 Main St.',
+            line2: 'Unit 1',
+            city: 'Chicago',
+            countryCode: 'US',
+            postalCode: '60652',
+            state: 'IL',
+            phone: '123.456.7890'
+            }
+        });
+    },
+    onAuthorize: function (payload) {
+    // Submit `payload.nonce` to your server.
+    },
+}, '#idbutton');
+</script>
+</body>
+</html>
