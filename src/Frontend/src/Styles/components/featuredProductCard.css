@@ -1,0 +1,38 @@
+.Card-featured-product{
+    justify-content: center;
+    display: flex;
+    width: 100%;
+}
+
+.Card-featured-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    max-width: 350px;
+    height: fit-content;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+    background-color: rgba(240,240,240, 0.7);
+}
+
+.Card-featured-info{
+    position: absolute;
+    margin-top: 85px;
+    padding: 10px 25px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+    background-color: rgba(240, 240, 240, 0.5);
+    width: 200px;
+}
+
+.Card-featured-image img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.Card-featured-image{
+    height: 300px;
+    width: 300px;
+}
