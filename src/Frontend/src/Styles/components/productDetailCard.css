@@ -1,0 +1,70 @@
+.Card-detail-product{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;;
+}
+.Card-detail-container{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Card-detail__title{
+    width: 100%;
+    height: 30px;
+    background-color: black;
+    color: blanchedalmond;
+    text-align: center;
+}
+.Card-detail__image{
+    text-align: center;
+    width: 100%;
+}
+.Card-detail__image img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.Card-detail__price{
+    width: 100%;
+    font-size: xx-large;
+    padding: 5px;
+}
+
+.Card-detail__description{
+    width: 100%;
+    height: 60px;
+    padding: 10px;
+}
+
+.SpinnerAtom{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.SpinnerAtom__btn1{
+    border: solid black 2px;
+    width: 43px;
+    height: 36px;	
+    border-radius: 5px 0px 0px 5px;	
+    outline: none;	
+}
+.SpinnerAtom__btn2{
+    border: solid black 2px;
+    width: 43px;
+    height: 36px;
+    border-radius: 0px 5px 5px 0px;	
+    outline: none;							
+}
+.SpinnerAtom__num{
+    width: 50px;
+    height: 30px;	
+    text-align:center;
+    font-size: 30px;	
+    border: 2px solid black;
+    color: rgb(0, 0, 153);
+    outline: none;							
+}

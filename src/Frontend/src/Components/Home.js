@@ -6,7 +6,7 @@ import Button from './Atoms/Button';
 import FeaturedProduct from '../Components/featuredProductCard';
 import LatesProductsList from '../Containers/listProducts';
 
-const api_latest_products = 'http://127.0.0.1:3006/api/products/latest?q='
+const api_latest_products = 'http://127.0.0.1:3005/api/products/latest?q='
 
 
 function shoot() {
