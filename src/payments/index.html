@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+          <div class="card">
+            <div class="card-body">
+              <p>Ejemplo de envio de pago a Stripe</p>
+              <p>Datos Necesarios a cargar en el formulario</p>
+              <p>Metodo post del formulario: se debe enviar en la liga el id del usuario para obtener su carrito de compras</p>
+              <p>El campo data-amount en el formulario lleva el monto (este campo es visual ya que sale en la ventana de stripe pero el monto real lo calcula el backend en base al carrito de compras del usuario)</p>
+              <p>Se puede agregar un mejor logo en data-image para que se vea en el encabezado del form</p>
+              <p>el boton con clase stripe-button-el es el que trae el form pero para personalizar el boton se le dio un display none y se creo u n nuevo boton </p>
+              <p> la data-key es la llave que nos da stripe esta se puede/deberia ser manejada como variable de entorno
+              </p>
+            </div>
+            <div class="card-footer">
+              <form action="http://localhost:3000/api/payment/stripe/checkout/EZ5dgvn3g4IO6JCVy2LT5" method="POST">
+                <script src="https://checkout.stripe.com/checkout.js" 
+                    class="stripe-button"
+                    data-key="pk_test_Qy6uIqE3a6pG8GzGH4Xx1QCr00SK89OIVE" 
+                    data-amount="3000" 
+                    data-name="Kod3rs Store"
+                    data-description="Shopping Cart" 
+                    data-image="/logo192.png" 
+                    data-locale="auto">
+                  </script>
+                <script>
+                  document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+                </script>
+                <button type="submit" class="button">
+                  Ejemplo de compra con stripe 
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>   
+</body>
+</html>
+
+
+
