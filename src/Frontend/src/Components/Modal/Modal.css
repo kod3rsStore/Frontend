@@ -1,0 +1,17 @@
+.modal-wrapper {
+    background: white;
+    border: 1px solid #d0cccc;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
+    margin: 100px auto 0;
+    transition: all .8s;
+    width: 350px;
+}
+
+.Menu1__item4{
+    background-color: rgb(237,237,237);
+    border:0px;
+    border-radius: 5px;
+    width: 200px;
+    margin:15px;
+    font-size: 24px;
+}
