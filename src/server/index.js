@@ -177,7 +177,7 @@ app.post('/stripe/:userId',urlencodedParser,  async (req, res, next) => {
 userAPI(app);
 productsAPI(app);
 categoriesAPI(app);
-//addressesAPI(app);
+addressesAPI(app);
 //shopCartAPI(app);
 
 app.listen(PORT, (err) => {

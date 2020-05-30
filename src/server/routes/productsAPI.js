@@ -7,8 +7,6 @@ const { config } = require("../../config");
 function productsApi(app) {
   const router = express.Router();
   app.use('/api/products', router);
-
-
   
   router.get('/:id', async function(req, res, next) {
     const id = req.params.id;
