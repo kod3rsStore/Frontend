@@ -3,6 +3,8 @@
     background-color: rgb(255,153,0);
     width: 100%;
     border: 0px;
+    height: 35px;
+    margin: 10px;
     border-radius: 5px;
     font-size: 16px;
 }

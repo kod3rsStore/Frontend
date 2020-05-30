@@ -46,8 +46,6 @@ class App extends Component{
 					<Switch>
 						<Route path="/" exact component={Home}/>
 						<Route path="/home" component={Home}/>
-						<Route path="/featuredproduct" component={featuredProduct} />
-						<Route path="/cardProductList" component={listProducts} />
 						<Route path="/products2" component={Products2}/>
 						<Route path="/products4" component={Products4}/>
 						<Route path="/products6" component={Products6}/>
