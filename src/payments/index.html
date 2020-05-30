@@ -21,7 +21,7 @@
               </p>
             </div>
             <div class="card-footer">
-              <form action="http://localhost:3000/api/payment/stripe/checkout/EZ5dgvn3g4IO6JCVy2LT5" method="POST">
+                <form action="http://localhost:8000/stripe/EZ5dgvn3g4IO6JCVy2LT5" method="POST">
                 <script src="https://checkout.stripe.com/checkout.js" 
                     class="stripe-button"
                     data-key="pk_test_Qy6uIqE3a6pG8GzGH4Xx1QCr00SK89OIVE" 
@@ -36,6 +36,20 @@
                 </script>
                 <button type="submit" class="button">
                   Ejemplo de compra con stripe 
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <p>Login con google</p>
+              <p>este login regresa los permisos del usuario en nuestro sistema, genera un token y le inserta una cookie al usuario
+              </p>
+            </div>
+            <div class="card-footer">
+              <form action="http://localhost:8000/auth/google-oauth" method="GET">
+                <button type="submit" class="button">
+                  Login con google
                 </button>
               </form>
             </div>
