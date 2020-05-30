@@ -27,6 +27,14 @@
     width: 100%;		
 }
 
+.open-modal-btn{
+    background: url(/img/menuLgt.png);
+    width: 70px;
+    height: 70px;
+    border: 0px;
+}
+
+
 @media screen and (max-width:1920px) and (min-width:480px){	
 
     .Headr{
@@ -57,4 +65,9 @@
         grid-template-rows: auto auto;	
         text-align: center;			
     }
+    .Headr__item1{
+        position: fixed;
+        left:10px;
+    }
+
 }	
