@@ -8,14 +8,13 @@ function productsApi(app) {
   const router = express.Router();
   app.use('/api/products', router);
 
-  router.get('/', (req, res) => {
-    res.send(`API products v 0.01`);
-  });
+
   
   router.get('/:id', async function(req, res, next) {
     const id = req.params.id;
     try {
         const { token } = req.cookies;
+        console.log(token);
         const { data, status } = await axios({
           url: `${config.apiUrl}/api/products/${id}`,
           headers: { Authorization: `Bearer ${token}` },
@@ -68,8 +67,10 @@ function productsApi(app) {
   router.get('/search/name', async function(req, res, next) {
     try {
         const { token } = req.cookies;
+        const s = req.query;
+        console.log(s);
         const { data, status } = await axios({
-          url: `${config.apiUrl}/api/products/search/name`,
+          url: `${config.apiUrl}/api/products/search/name?s=${s.s}`,
           headers: { Authorization: `Bearer ${token}` },
           method: 'get',
         });
@@ -85,8 +86,11 @@ function productsApi(app) {
   router.get('/search/category', async function(req, res, next) {
     try {
         const { token } = req.cookies;
+        //cat_id
+        const cat_id = req.query;
+        console.log(`${config.apiUrl}/api/products/search/category?cat_id=${cat_id.cat_id}`);
         const { data, status } = await axios({
-          url: `${config.apiUrl}/api/products/search/category`,
+          url: `${config.apiUrl}/api/products/search/category${cat_id.cat_id}`,
           headers: { Authorization: `Bearer ${token}` },
           method: 'get',
         });
@@ -102,8 +106,14 @@ function productsApi(app) {
   router.get('/search/price', async function(req, res, next) {
     try {
         const { token } = req.cookies;
+        let text = "?";
+        Object.keys(req.query).forEach( (item) => {
+            text = text + item + "=" + req.query[item] + "&" ;
+        });
+        const keyGet = Object.keys(req.query);
+        const value =  Object.values(req.query);
         const { data, status } = await axios({
-          url: `${config.apiUrl}/api/products/search/price`,
+          url: `${config.apiUrl}/api/products/search/price${text}`,
           headers: { Authorization: `Bearer ${token}` },
           method: 'get',
         });
