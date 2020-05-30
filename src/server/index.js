@@ -4,7 +4,7 @@ const boom = require('@hapi/boom');
 const cookieParser = require('cookie-parser');
 const axios = require('axios');
 
-const { config } = require("../config");
+const { config } = require("./config/index");
 const { ENV, PORT } = process.env;
 const app = express(); 
 

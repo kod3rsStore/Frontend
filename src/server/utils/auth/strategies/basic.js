@@ -3,7 +3,7 @@ const { BasicStrategy } = require('passport-http');
 
 const boom = require('@hapi/boom');
 const axios = require('axios');
-const { config } = require('../../../../config/index');
+const { config } = require('../../../config');
 
 /**
  * Basic authentication using passport 

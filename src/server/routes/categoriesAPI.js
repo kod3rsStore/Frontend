@@ -2,7 +2,7 @@ const express = require('express');
 const boom = require('@hapi/boom');
 const cookieParser = require('cookie-parser');
 const axios = require('axios');
-const { config } = require("../../config");
+const { config } = require("../config");
 
 function categoriesApi(app) {
   const router = express.Router();
