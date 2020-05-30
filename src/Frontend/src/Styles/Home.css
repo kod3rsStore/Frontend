@@ -13,10 +13,7 @@
 }
 .home__item2{
     grid-area: item2;
-    width: 95%;
     margin: 3%;
-    display: flex;
-    justify-content: center;
 }
 .home__cont2{
     grid-area: cont2;
