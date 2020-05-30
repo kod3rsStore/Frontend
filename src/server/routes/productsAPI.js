@@ -2,7 +2,7 @@ const express = require('express');
 const boom = require('@hapi/boom');
 const cookieParser = require('cookie-parser');
 const axios = require('axios');
-const { config } = require("../../config");
+const { config } = require("../config");
 
 function productsApi(app) {
   const router = express.Router();
@@ -65,7 +65,6 @@ function productsApi(app) {
     try {
         const { token } = req.cookies;
         const s = req.query;
-        console.log(s);
         const { data, status } = await axios({
           url: `${config.apiUrl}/api/products/search/name?s=${s.s}`,
           headers: { Authorization: `Bearer ${token}` },
