@@ -23,7 +23,9 @@ app.use(express.json());
  * Using a cookie parser to work with the cookies of the client
  */
 app.use(cookieParser());
-
+//body-parser
+const bodyParser = require('body-parser')
+let urlencodedParser = bodyParser.urlencoded({ extended: false })
 /**
  * We get the passport basic strategy to use the email password authentication 
  */
@@ -142,6 +144,39 @@ app.get(
       res.status(200).json(user);
     }
 );
+
+app.post('/stripe/:userId',urlencodedParser,  async (req, res, next) => {
+    try {
+      const { userId } = req.params;
+      const { token } = req.cookies;
+      console.log(`${config.apiUrl}/api/payment/stripe/checkout/${userId}`);
+      const body = await axios({
+        url: `${config.apiUrl}/api/payment/stripe/checkout/${userId}`,
+        headers: { Authorization: `Bearer ${token}` },
+        data: req.body,
+        method: 'post',
+      });
+      if (body.data.status !== 201) {
+        return next(boom.badImplementation());
+      }
+      res.status(201).json(body.data);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Launch the Server Side Rendering Server
