@@ -10,7 +10,7 @@ const app = express();
 
 const userAPI = require('./routes/userAPI');
 const productsAPI = require('./routes/productsAPI.js');
-//const categoriesAPI = require('./routes/categoriesAPI');
+const categoriesAPI = require('./routes/categoriesAPI');
 //const addressesAPI = require('./routes/addressesAPI');
 //const shopCartAPI = require('./routes/shopCartAPI');
 
@@ -176,7 +176,7 @@ app.post('/stripe/:userId',urlencodedParser,  async (req, res, next) => {
 
 userAPI(app);
 productsAPI(app);
-//categoriesAPI(app);
+categoriesAPI(app);
 //addressesAPI(app);
 //shopCartAPI(app);
 

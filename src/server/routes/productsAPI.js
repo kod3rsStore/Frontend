@@ -14,7 +14,6 @@ function productsApi(app) {
     const id = req.params.id;
     try {
         const { token } = req.cookies;
-        console.log(token);
         const { data, status } = await axios({
           url: `${config.apiUrl}/api/products/${id}`,
           headers: { Authorization: `Bearer ${token}` },
