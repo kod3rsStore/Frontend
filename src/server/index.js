@@ -146,10 +146,8 @@ app.get(
 );
 
 app.post('/stripe/:userId',urlencodedParser,  async (req, res, next) => {
-    console.log(req.body);
     try {
       const { userId } = req.params;
-
       const { token } = req.cookies;
       console.log(`${config.apiUrl}/api/payment/stripe/checkout/${userId}`);
       const body = await axios({
@@ -158,7 +156,6 @@ app.post('/stripe/:userId',urlencodedParser,  async (req, res, next) => {
         data: req.body,
         method: 'post',
       });
-      console.log(body);
       if (body.data.status !== 201) {
         return next(boom.badImplementation());
       }
