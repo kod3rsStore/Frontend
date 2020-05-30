@@ -8,12 +8,17 @@ const { config } = require("../config");
 const { ENV, PORT } = process.env;
 const app = express(); 
 
+const userAPI = require('./routes/userAPI');
+const productsAPI = require('./routes/productsAPI.js');
+const categoriesAPI = require('./routes/categoriesAPI');
+const addressesAPI = require('./routes/addressesAPI');
+const shopCartAPI = require('./routes/shopCartAPI');
+
 /**
  * Constants of cookies lifetime in seconds
  */
 const THIRTY_DAYS_IN_SEC = 2592000;
 const TWO_HOURS_IN_SEC = 7200;
-
 
 /**
  * Using a body parser to work with the information
@@ -69,7 +74,7 @@ app.post("/auth/sign-in", async function(req, res, next) {
                 /**
                  * Creating the cookie in the client browser
                 */
-               const { token, ...user } = data;
+               const { token, ...user } = data.body;
                 res.cookie("token", token, {
                     httpOnly: !config.dev,
                     secure: !config.dev,
@@ -121,28 +126,28 @@ app.get(
  * Call to the basic authentication
  */
 
-  app.get(
-    "/auth/google-oauth/callback",
-    passport.authenticate("google-oauth", { session: false }),
-    function(req, res, next) {
-      if (!req.user) {
-        next(boom.unauthorized());
-      }
-  
-      const { token, ...user } = req.user;
-    /**
-     * Creating the cookie in the client browser
-    */
-      res.cookie("token", token, {
-        httpOnly: !config.dev,
-        secure: !config.dev,
-        maxAge: THIRTY_DAYS_IN_SEC 
-      });
-    /**
-     * Response to the user
-    */
-      res.status(200).json(user);
+app.get(
+  "/auth/google-oauth/callback",
+  passport.authenticate("google-oauth", { session: false }),
+  function(req, res, next) {
+    if (!req.user) {
+      next(boom.unauthorized());
     }
+
+    const { token, ...user } = req.user;
+  /**
+   * Creating the cookie in the client browser
+  */
+    res.cookie("token", token, {
+      httpOnly: !config.dev,
+      secure: !config.dev,
+      maxAge: THIRTY_DAYS_IN_SEC 
+    });
+  /**
+   * Response to the user
+  */
+    res.status(200).json(user);
+  }
 );
 
 app.post('/stripe/:userId',urlencodedParser,  async (req, res, next) => {
@@ -165,22 +170,15 @@ app.post('/stripe/:userId',urlencodedParser,  async (req, res, next) => {
     }
   });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * Launch the Server Side Rendering Server
 */
+
+userAPI(app);
+productsAPI(app);
+categoriesAPI(app);
+addressesAPI(app);
+shopCartAPI(app);
 
 app.listen(PORT, (err) => {
     if(err) console.error(err);
