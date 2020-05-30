@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import './App.css';
+import Headr from './Components/Header';
 import Home from './Components/Home.js';
-
 import Products2 from './Components/Products2.js';
-
 import Products4 from './Components/Products4.js';
-
 import Products6 from './Components/Products6.js';
 import ProductDtl from './Components/ProductDtl.js';
 import Payment1 from './Components/Payment1.js';
@@ -27,21 +25,7 @@ class App extends Component{
 	render(){
 		return(
 			<div>
-				<div className="hdr">
-					<div className="hd"><a href="/menu1" target="_self"><img src="/img/menuLgt.png" className="icon" alt="twitter" /></a></div>
-					<div className=""><img id="logo" src="/img/logo1.png" alt=""/></div>
-					<a href="https://google.com" className="hdh">Home</a>
-					<a href="https://google.com" className="hdh">Login</a>
-					<a href="https://google.com" className="hdh">Dark</a>
-					<a href="https://google.com" className="hdh">Profile</a>
-					<div className=""><img id="logo" src="/img/cartLgt1.png" alt="" /></div>
-					<div className="hd1">
-						<div className="wrapper"> 
-							<div className="searchbtn"><img id="glass" src="/img/glass.png" alt=""/></div>
-							<div><input type="text" className="input" placeholder="Buscar" /></div>
-						</div>
-					</div>
-				</div>
+				<Headr />
 				<Router>	
 					<Switch>
 						<Route path="/" exact component={Home}/>
