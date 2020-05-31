@@ -4,6 +4,7 @@ import Button from './Atoms/Button';
 
 //import Banner from './Atoms/Banner';
 import FeaturedProduct from '../Components/featuredProductCard';
+import Header from '../Components/Header';
 import LatesProductsList from '../Containers/listProducts';
 import SearchBar from '../Components/SearchBar';
 const api_latest_products = 'http://127.0.0.1:3005/api/products/latest?q=';
@@ -38,6 +39,7 @@ function Home() {
 
   return (
     <div className="home">
+      <Header />
       <SearchBar />
       {isLoaded
         ? <div> <FeaturedProduct {...products.body[2]}/> </div>

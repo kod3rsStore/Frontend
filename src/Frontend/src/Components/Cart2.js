@@ -1,29 +1,52 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import '../Styles/Cart2.css';
+import Header from '../Components/Header';
+import SearchBar from '../Components/SearchBar'
+import ShoppingCart from '../Containers/shoppingCart';
 
-function shoot() {
-  alert("Button operational");
-}
 
-function Cart2() {
+
+function Cart2(shopping_cart) {
+  function shoot() {
+
+  }
+
+  function getTotal(total, product){
+    return total + (product.cost*product.pcs); 
+  }
+  const totalCost = shopping_cart.shopping_cart.reduce(getTotal,0)
+
   return (
     <div className="Cart2">
-      <div className="Cart2__item1"><p>Total $var</p></div>
+      <Header />
+      <SearchBar />
+      <div className="Cart-info">
+        {shopping_cart.shopping_cart.length > 0 &&
+          <div className="Cart-total-cost">
+            <div>Total</div>
+            <div className="Cart-cost">{totalCost} MXN</div>
+          </div>
+        }
+        <div>
+          {shopping_cart.shopping_cart.length > 0 ?
+             <p>Products in your cart-->   {shopping_cart.shopping_cart.length}</p> :
+             <p>Your cart is empty, for now :)</p>
+          }
+        </div>        
+      </div>
       <div className="Cart2__item2"><button onClick={shoot} className="Cart2__item2-btn">Buy now</button></div>
-      <div className="Cart2__cont2">
-        <div className="Cart2__cont2-sub1"><img  src="/products/ropa hombre 2.jpeg" className="Cart2__cont2-sub1-img" alt="demo"  /></div>
-        <div className="Cart2__cont2-sub2"><p>Var Product name</p></div>
-        <div className="Cart2__cont2-sub3"><p>var Product characteristics</p></div>
-      </div>
-      <div className="Cart2__item4"><img  src="/img/cuantityLgt.png" className="Cart2__item4-img" alt="demo"  /></div>
-      <div className="Cart2__cont2">
-        <div className="Cart2__cont2-sub1"><img  src="/products/ropa hombre 2.jpeg" className="Cart2__cont2-sub1-img" alt="demo"  /></div>
-        <div className="Cart2__cont2-sub2"><p>Var Product name</p></div>
-        <div className="Cart2__cont2-sub3"><p>var Product characteristics</p></div>
-      </div>
-      <div className="Cart2__item4"><img  src="/img/cuantityLgt.png" className="Cart2__item4-img" alt="demo"  /></div>
+      { shopping_cart.shopping_cart.length > 0 &&
+        <ShoppingCart  {...shopping_cart} />
+      }
     </div>
   );
 }
 
-export default Cart2;
+const mapStateToProps = (state) => {
+  return {
+    shopping_cart: state.shopping_cart,
+  };
+};
+
+export default connect(mapStateToProps, null)(Cart2);
