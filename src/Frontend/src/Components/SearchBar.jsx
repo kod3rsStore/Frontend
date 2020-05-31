@@ -18,7 +18,7 @@ const SearchBar = () => {
                         word: 'name?s='+text,
                     }}>
                 <div className="SearchBtn">
-                <img id="glass" src="/img/glass.png" alt="Search into our store"/>
+                    <img id="glass" src="/img/glass.png" alt="Search into our store"/>
                 </div>
             </Link>
         </div>
