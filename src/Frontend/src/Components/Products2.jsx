@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../Styles/Products2.css';
 import ListProductsSearch from '../Containers/listProductsSearch'
+import Header from '../Components/Header';
 import SearchBar from './SearchBar';
 
 const api_search_products = 'http://127.0.0.1:3005/api/products/search/';
@@ -50,6 +51,7 @@ function Products1(word) {
 
   return (
     <div className="productsResultSearch">
+      <Header />
       <SearchBar />
       <div className="prod1">
         <div className="prod1__item1">Filter by</div>

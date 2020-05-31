@@ -1,5 +1,7 @@
 import React from 'react';
 import '../Styles/components/productCardList.css';
+import { connect } from 'react-redux'
+import { addProduct } from '../actions/index';
 import { Link } from 'react-router-dom';
 
 const url_dummy_img = "https://dummyimage.com/300x300/16c706/fff";
@@ -9,6 +11,7 @@ const ProductCardList = (props) => {
     
     function handleHandleAddToCartClick(e) {
         e.preventDefault();
+        props.addProduct({...props, "pcs":1});
         console.log('The link was clicked.'+id_products);
 
       }
@@ -37,5 +40,9 @@ const ProductCardList = (props) => {
       
     );
   }
-  
-  export default ProductCardList;
+
+  const mapDispatchToProps = {
+    addProduct,
+  };
+
+  export default connect(null,mapDispatchToProps)(ProductCardList);

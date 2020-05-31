@@ -15,7 +15,10 @@ const FeaturedProductCard = (props) => {
                 </div>
                 
                 <div className="Card-featured-info">
-                    <Link to="/productDetail">
+                    <Link to={{
+                                    pathname: '/productdtl',
+                                    product:props
+                                }}>
                         <div>{title}</div>
                     </Link>
                 </div>

@@ -11,16 +11,18 @@ const SearchBar = () => {
     }
 
     return (
-        <div className="Search-by-name">
-            <div className="SearchInput"><input  onChange={handleChange} type="text" className="input" placeholder="Buscar" /></div>
-            <Link to={{
-                        pathname: '/products2',
-                        word: 'name?s='+text,
-                    }}>
-                <div className="SearchBtn">
-                    <img id="glass" src="/img/glass.png" alt="Search into our store"/>
-                </div>
-            </Link>
+        <div className="Search-bar">
+            <div className="Search-by-name">
+                <div className="SearchInput"><input  onChange={handleChange} type="text" className="input" placeholder="Buscar" /></div>
+                <Link to={{
+                            pathname: '/products2',
+                            word: 'name?s='+text,
+                        }}>
+                    <div className="SearchBtn">
+                        <img id="glass" src="/img/glass.png" alt="Search into our store"/>
+                    </div>
+                </Link>
+            </div>
         </div>
     )
 }

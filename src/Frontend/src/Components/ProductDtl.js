@@ -2,6 +2,7 @@ import React from 'react';
 import '../Styles/ProductDtl.css';
 
 import ProductDetailCard from '../Components/productDetailCard'
+import Header from '../Components/Header';
 
 function shoot() {
   alert("Button operational");
@@ -12,6 +13,7 @@ function ProductDtl(product) {
   console.log(current_product)
   return (
     <div className="prodtl">
+      <Header />
       <ProductDetailCard {...current_product}/>
     </div>
   );

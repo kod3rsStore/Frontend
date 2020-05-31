@@ -2,6 +2,8 @@
 import React, {useState} from 'react';
 import '../Styles/components/productDetailCard.css';
 import Button from './Atoms/Button/index';
+import { connect } from 'react-redux'
+import { addProduct } from '../actions/index';
 
 const url_dummy_img = "https://dummyimage.com/300x300/16c706/fff";
 const FeaturedProductCard = (props) => {
@@ -21,9 +23,13 @@ const FeaturedProductCard = (props) => {
         }
     }
 
-    function shoot() {
+    function addToCart() {
+        props.addProduct({...props, "pcs":quantity});
+    }
+
+    function buyProduct() {
         alert("Button operational");
-      }
+    }
 
       return(
         <section className="Card-detail-product">
@@ -39,11 +45,14 @@ const FeaturedProductCard = (props) => {
                     <input type="text" id='result' value={quantity} className="SpinnerAtom__num" readOnly onChange={hadleCount} />
                     <button onClick={() => addCount()} className="material-icons SpinnerAtom__btn2">add</button>
                 </div>
-                <Button clic={()=>shoot()} name={'Add to cart'} />
-                <Button clic={()=>shoot()} name={'Buy Now'} />
+                <Button clic={()=>addToCart()} name={'Add to cart'} />
+                <Button clic={()=>buyProduct()} name={'Buy Now'} />
             </div>
         </section>      
     );
   }
-  
-  export default FeaturedProductCard;
+  const mapDispatchToProps = {
+    addProduct,
+  };
+
+  export default connect(null,mapDispatchToProps)(FeaturedProductCard);

@@ -61,13 +61,14 @@
     }
     .Headr{
         display: grid;
-        grid-template-columns: 25% 25% 50%;
+        grid-template-columns: 25% 50% 25%;
         grid-template-rows: auto auto;	
         text-align: center;			
     }
     .Headr__item1{
-        position: fixed;
+        position: absolute;
         left:10px;
+        width: 0;
     }
 
 }	

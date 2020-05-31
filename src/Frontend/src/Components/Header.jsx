@@ -8,7 +8,7 @@ class Header extends Component {
 
   constructor() {
       super();
-
+      
       this.state = {
           isShowing: false
       }
@@ -42,12 +42,20 @@ class Header extends Component {
             </Modal>
           </div>
         </div>
-        <div className="Headr__item2"><a href="/home" target="_self"><img id="logoKod3rs" src="/img/logo1.png" alt=""/></a></div>
+        <div className="Headr__item2">
+          <Link to="/home">
+            <img id="logoKod3rs" src="/img/logo1.png" alt=""/>
+          </Link>
+        </div>
         <a href="https://google.com" className="Headr__item3">Home</a>
         <a href="https://google.com" className="Headr__item3">Login</a>
         <a href="https://google.com" className="Headr__item3">Dark</a>
         <a href="https://google.com" className="Headr__item3">Profile</a>
-        <div className="Headr__item4"><img id="Cart" src="/img/cartLgt1.png" alt="" /></div>
+        <div className="Cart-component">
+            <Link to="/cart2" className="Header-Cart__image">
+              <div className="Headr__item4"><img id="Cart" src="/img/cartLgt1.png" alt="" /></div>
+            </Link>
+        </div>
     </div>
   );
 }
