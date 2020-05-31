@@ -8,8 +8,9 @@ import ShoppingCart from '../Containers/shoppingCart';
 
 
 function Cart2(shopping_cart) {
+  
   function shoot() {
-
+    
   }
 
   function getTotal(total, product){

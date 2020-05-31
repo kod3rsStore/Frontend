@@ -10,7 +10,7 @@ import Payment2 from './Components/Payment2.js';
 import Login1 from './Components/Login1.js';
 import Login2 from './Components/Login2.js';
 import Login3 from './Components/Login3.js';
-import Cart1 from './Components/Cart1.js';
+import CheckOut from './Components/CheckOut';
 import Cart2 from './Components/Cart2.js';
 import User1 from './Components/User1.js';
 import User2 from './Components/User2.js';
@@ -35,7 +35,7 @@ class App extends Component{
 						<Route path="/login1" component={Login1}/>
 						<Route path="/login2" component={Login2}/>
 						<Route path="/login3" component={Login3}/>
-						<Route path="/cart1" component={Cart1}/>
+						<Route path="/CheckOut" component={CheckOut}/>
 						<Route path="/cart2" component={Cart2}/>
 						<Route path="/user1" component={User1}/>
 						<Route path="/user2" component={User2}/>
