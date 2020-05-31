@@ -177,24 +177,26 @@ app.get(
     }
 
     const { token, ...user } = req.user;
+    
     res.cookie('email', user.user.email, {
       httpOnly: !config.dev,
       secure: !config.dev,
     });
-    res.cookie('id', user.user.id, {
+    res.cookie('id', user.user.id_users, {
       httpOnly: !config.dev,
       secure: !config.dev,
     });
-    res.cookie('name', user.user.name, {
+    res.cookie('name', user.user.first_name, {
       httpOnly: !config.dev,
       secure: !config.dev,
     });
+
 
     res.cookie('token', token, {
       httpOnly: !config.dev,
       secure: !config.dev,
     });
-    res.redirect(req.headers.referer);
+    res.redirect(req.headers.referer.replace('login',''));
   },
 );
 
