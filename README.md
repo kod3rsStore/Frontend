@@ -93,6 +93,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 * **Andres Alba**  [Lithyablake](https://github.com/andresalba)
 * **Mariana Cortes**  [Lithyablake](https://github.com/Lithyablake)
 * **Luis Antonio Rodriguez Garcia**  [Luisrdz5](https://github.com/luisrdz5)
+* **Wilson Antury**  [Wilantury](https://github.com/wilantury)
 
 See also the list of [contributors](https://github.com/kod3rsStore/Frontend/contributors) who participated in this project.
 

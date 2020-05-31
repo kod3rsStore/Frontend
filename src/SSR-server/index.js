@@ -37,9 +37,16 @@ let urlencodedParser = bodyParser.urlencoded({ extended: false })
 require('./utils/auth/strategies/basic');
 
 /**
- * We get the passport  strategy to use tgoogle authentication 
+ * We get the passport  strategy to use oauth authentication 
  */
 require('./utils/auth/strategies/oauth');
+
+
+/**
+ * We get the passport  strategy to use 
+ * google authentication 
+ */
+require('./utils/auth/strategies/google');
 
 if(ENV === 'development'){
     console.log('development config');
@@ -48,6 +55,7 @@ if(ENV === 'development'){
  * Sign in Endpoint
  */
 app.post("/auth/sign-in", async function(req, res, next) {
+  console.log('entre a sign in')
 /**
  * Get the rememberme attirbute 
  * if rememberme is true we give 30 days lifetime to the cookie 
@@ -83,6 +91,7 @@ app.post("/auth/sign-in", async function(req, res, next) {
                 /**
                  * Response to the user
                 */
+               console.log(`respuesta: ${user}`);
                 res.status(200).json(user);
             })
         }catch(error) {
@@ -148,6 +157,45 @@ app.get(
   */
     res.status(200).json(user);
   }
+);
+app.get(
+  '/auth/google',
+  (req, res, next) => {
+    console.log ('Generating Google Autentication');
+    next();
+  } ,
+  passport.authenticate('google', {
+    scope: ['email', 'profile', 'openid'],
+  }),
+);
+app.get(
+  '/auth/google/callback',
+  passport.authenticate('google', { session: false }),
+  (req, res, next) => {
+    if (!req.user) {
+      next(boom.unauthorized());
+    }
+
+    const { token, ...user } = req.user;
+    res.cookie('email', user.user.email, {
+      httpOnly: !config.dev,
+      secure: !config.dev,
+    });
+    res.cookie('id', user.user.id, {
+      httpOnly: !config.dev,
+      secure: !config.dev,
+    });
+    res.cookie('name', user.user.name, {
+      httpOnly: !config.dev,
+      secure: !config.dev,
+    });
+
+    res.cookie('token', token, {
+      httpOnly: !config.dev,
+      secure: !config.dev,
+    });
+    res.redirect(req.headers.referer);
+  },
 );
 
 app.post('/stripe/:userId',urlencodedParser,  async (req, res, next) => {
