@@ -196,7 +196,7 @@ app.get(
       httpOnly: !config.dev,
       secure: !config.dev,
     });
-    res.redirect(req.headers.referer);
+    res.redirect(req.headers.referer.replace('login',''));
   },
 );
 
