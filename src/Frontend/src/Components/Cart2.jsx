@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
 import '../Styles/Cart2.css';
-import Header from '../Components/Header';
-import SearchBar from '../Components/SearchBar'
+import Header from './Header';
+import SearchBar from './SearchBar'
 import ShoppingCart from '../Containers/shoppingCart';
 
 
 
 function Cart2(shopping_cart) {
+  
   function shoot() {
 
   }
@@ -35,7 +37,12 @@ function Cart2(shopping_cart) {
           }
         </div>        
       </div>
-      <div className="Cart2__item2"><button onClick={shoot} className="Cart2__item2-btn">Buy now</button></div>
+      <Link to={{
+                  pathname: '/CheckOut',
+                  cost:totalCost
+              }}>
+        <div className="Cart2__item2"><button onClick={shoot} className="Cart2__item2-btn">Buy now</button></div>
+      </Link>
       { shopping_cart.shopping_cart.length > 0 &&
         <ShoppingCart  {...shopping_cart} />
       }
