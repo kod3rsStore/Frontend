@@ -1,23 +1,35 @@
-image: node:12
+image: tiangolo/docker-with-compose
+
+before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
 stages:
-    - install
+    - build
     - test
-install-dependencies:
-    stage: install
+    - deploy
+
+build-prod:
+    stage: build
     script:
-        - npm install
-    artifacts:
-        expire_in: 1hr
-        paths:
-            - node_modules/
-    cache:
-        paths:
-            - node_modules/
-test-apps:
-    stage: test
-    dependencies:
-        - install-dependencies
-    before_script:
-        - apt-get upgrade && apt-get update
+        - docker-compose -f docker-compose.prod.yml build
+        - docker-compose -f docker-compose.prod.yml push
+    only:
+        - master
+    tags:
+        - build
+        
+include:
+    - template: Code-Quality.gitlab-ci.yml              
+    - template: Container-Scanning.gitlab-ci.yml    
+    - template: Dependency-Scanning.gitlab-ci.yml     
+    - template: SAST.gitlab-ci.yml  
+        
+deploy-prod:
+    stage: deploy
     script:
-        - npm run test:ci        
+        - docker stack deploy -c docker-compose.prod.yml --with-registry-auth production
+    only:
+        - master
+    tags:
+        - swarm
+      
