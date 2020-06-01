@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  backend_ssr:
+    image: 'backend-ssr:latest'
+    container_name: backend-ssr
+    build:
+      context: ./src/SSR-server
+      dockerfile: Dockerfile
+    ports:
+      - '8000:8000'
+    environment:
+      - API_URL=${API_URL}
+      - API_KEY_TOKEN=${API_KEY_TOKEN}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+  frontend:
+    container_name: frontend 
+    stdin_open: true
+    build:
+      context: ./src/Frontend
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'

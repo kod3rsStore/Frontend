@@ -1,0 +1,53 @@
+version: "3.7"
+
+services:
+  backend_ssr:
+    image: '${CI_REGISTRY_IMAGE}/ssr:latest'
+    container_name: backend-ssr
+    build:
+      context: ./src/SSR-server
+      dockerfile: Dockerfile
+    environment:
+      - API_URL=${API_URL}
+      - API_KEY_TOKEN=${API_KEY_TOKEN}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
+      - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
+    deploy:
+      labels:
+        - traefik.frontend.rule=Host:ssr.kod3rsstore.com
+        - traefik.enable=true
+        - traefik.port=8000
+        - traefik.tags=traefik-public
+        - traefik.docker.network=traefik-public
+        - traefik.redirectorservice.frontend.entryPoints=http
+        - traefik.redirectorservice.frontend.redirect.entryPoint=https
+        - traefik.webservice.frontend.entryPoints=https
+    networks:
+      - traefik-public
+      - default  
+  frontend:
+    image: '${CI_REGISTRY_IMAGE}/frontend:latest'
+    container_name: frontend 
+    stdin_open: true
+    build:
+      context: ./src/Frontend
+      dockerfile: Dockerfile
+    deploy:
+      labels:
+        - traefik.frontend.rule=Host:kod3rsstore.com
+        - traefik.enable=true
+        - traefik.port=3000
+        - traefik.tags=traefik-public
+        - traefik.docker.network=traefik-public
+        - traefik.redirectorservice.frontend.entryPoints=http
+        - traefik.redirectorservice.frontend.redirect.entryPoint=https
+        - traefik.webservice.frontend.entryPoints=https
+    networks:
+      - traefik-public
+      - default      
+networks:
+  traefik-public:
+    external: true
+        
+            
+  
