@@ -61,7 +61,7 @@
     }
     .Headr{
         display: grid;
-        grid-template-columns: 25% 25% 50%;
+        grid-template-columns: 25% 50% 25%;
         grid-template-rows: auto auto;	
         text-align: center;			
     }
@@ -69,6 +69,9 @@
         position: fixed;
 
         width:10px;
+
+        left:10px;
+
     }
 
 }	

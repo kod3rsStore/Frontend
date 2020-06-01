@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import Header from './Components/Header';
-import Home from './Components/Home.js';
+import Home from './Components/Home';
 import Products2 from './Components/Products2';
 import Products4 from './Components/Products4.js';
 import Products6 from './Components/Products6.js';
@@ -23,7 +22,6 @@ class App extends Component{
 	render(){
 		return(
 			<div>
-				<Header />
 				<Router>	
 					<Switch>
 						<Route path="/" exact component={Home}/>

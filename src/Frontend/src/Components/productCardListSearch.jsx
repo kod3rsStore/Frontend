@@ -7,9 +7,12 @@ const url_dummy_img = "https://dummyimage.com/300x300/16c706/fff";
 const ProductCardSearchList = (props) => {
     const { title, description, cost, url, id_products} = props; 
     let new_description;
-        if(description.length > 30){
-            new_description = description.substring(0, 30) + "...";
-        }
+      if(description){
+
+          if(description.length > 30){
+              new_description = description.substring(0, 30) + "...";
+          }
+      }
 
       return(
       

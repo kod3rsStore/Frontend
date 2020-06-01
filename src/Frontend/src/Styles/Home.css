@@ -1,6 +1,6 @@
 .home{
     display: grid;
-    grid-template-areas: "item1" "item3" "item2" "cont2";
+    grid-template-areas: "item1" "item4" "item3" "item2" "cont2";
     grid-template-columns: 100%;	
     justify-content: center;
     align-items: center;
