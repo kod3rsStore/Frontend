@@ -3,7 +3,10 @@
     justify-content: center;
     width: 100%;
 }
-
+.Checkout-total{
+    font-size: larger;
+    font-weight: 700;
+}
 .CheckOut-form-address{
     display: flex;
     flex-direction: column;
@@ -15,5 +18,10 @@
     margin: 10px 0px;
 }
 .CheckOut-container{
-    width: 330px;
+    margin-top: 20px;
+    width: 290px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: rgba(240,240,240, 0.7);
+    padding: 16px;
 }
