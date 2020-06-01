@@ -9,3 +9,11 @@
     border-radius: 5px;
     font-size: 24px;
 }
+
+.ButtonAtom:active {
+    background-color: rgb(240,167,88);
+}
+
+.ButtonAtom:hover{
+    background-color: rgb(240,167,88);
+}

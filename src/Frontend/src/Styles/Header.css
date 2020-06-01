@@ -66,9 +66,12 @@
         text-align: center;			
     }
     .Headr__item1{
-        position: absolute;
+        position: fixed;
+
+        width:10px;
+
         left:10px;
-        width: 0;
+
     }
 
 }	
