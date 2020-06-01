@@ -28,6 +28,7 @@ services:
   frontend:
     image: '${CI_REGISTRY_IMAGE}/frontend:latest'
     container_name: frontend 
+    stdin_open: true
     build:
       context: ./src/Frontend
       dockerfile: Dockerfile

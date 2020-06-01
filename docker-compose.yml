@@ -16,6 +16,7 @@ services:
       - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
   frontend:
     container_name: frontend 
+    stdin_open: true
     build:
       context: ./src/Frontend
       dockerfile: Dockerfile
