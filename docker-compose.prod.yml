@@ -13,18 +13,24 @@ services:
       - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
       - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
     deploy:
+      placement:
+        constraints:
+          - node.role == worker       
       labels:
-        - traefik.frontend.rule=Host:ssr.kod3rsstore.com
         - traefik.enable=true
-        - traefik.port=8000
-        - traefik.tags=traefik-public
         - traefik.docker.network=traefik-public
-        - traefik.redirectorservice.frontend.entryPoints=http
-        - traefik.redirectorservice.frontend.redirect.entryPoint=https
-        - traefik.webservice.frontend.entryPoints=https
+        - traefik.constraint-label=traefik-public
+        - traefik.http.routers.ssr-http.rule=Host(`ssr.kod3rsstore.com`)
+        - traefik.http.routers.ssr-http.entrypoints=http
+        - traefik.http.routers.ssr-http.middlewares=https-redirect
+        - traefik.http.routers.ssr-https.rule=Host(`ssr.kod3rsstore.com`)
+        - traefik.http.routers.ssr-https.entrypoints=https
+        - traefik.http.routers.ssr-https.tls=true
+        - traefik.http.routers.ssr-https.tls.certresolver=le
+        - traefik.http.services.ssr.loadbalancer.server.port=8000
     networks:
-      - traefik-public
-      - default  
+      - default
+      - traefik-public 
   frontend:
     image: '${CI_REGISTRY_IMAGE}/frontend:latest'
     container_name: frontend 
@@ -33,18 +39,24 @@ services:
       context: ./src/Frontend
       dockerfile: Dockerfile
     deploy:
+      placement:
+        constraints:
+          - node.role == worker       
       labels:
-        - traefik.frontend.rule=Host:kod3rsstore.com
         - traefik.enable=true
-        - traefik.port=3000
-        - traefik.tags=traefik-public
         - traefik.docker.network=traefik-public
-        - traefik.redirectorservice.frontend.entryPoints=http
-        - traefik.redirectorservice.frontend.redirect.entryPoint=https
-        - traefik.webservice.frontend.entryPoints=https
+        - traefik.constraint-label=traefik-public
+        - traefik.http.routers.front-http.rule=Host(`kod3rsstore.com`)
+        - traefik.http.routers.front-http.entrypoints=http
+        - traefik.http.routers.front-http.middlewares=https-redirect
+        - traefik.http.routers.front-https.rule=Host(`kod3rsstore.com`)
+        - traefik.http.routers.front-https.entrypoints=https
+        - traefik.http.routers.front-https.tls=true
+        - traefik.http.routers.front-https.tls.certresolver=le
+        - traefik.http.services.front.loadbalancer.server.port=3000
     networks:
-      - traefik-public
-      - default      
+      - default
+      - traefik-public     
 networks:
   traefik-public:
     external: true
