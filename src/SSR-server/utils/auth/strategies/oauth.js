@@ -16,7 +16,7 @@ const oAuth2Strategy = new OAuth2Strategy(
     tokenURL: GOOGLE_TOKEN_URL,
     clientID: config.googleClientId,
     clientSecret: config.googleClientSecret,
-    callbackURL: "/auth/google-oauth/callback"
+    callbackURL: `${config.ssrUrl}/auth/google-oauth/callback`
   },
   async function(accessToken, refreshToken, profile, cb) {
     try{
