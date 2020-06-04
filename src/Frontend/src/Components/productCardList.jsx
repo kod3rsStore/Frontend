@@ -21,7 +21,7 @@ const ProductCardList = (props) => {
         <section className="Card-product">
             <div className="Card-container">
                     <div className="Card-image">
-                        <img src={url? url+'png':url_dummy_img} alt="our goods"/> 
+                        <img src={url? url:url_dummy_img} alt="our goods"/> 
                     </div>
                     <Link to={{
                                     pathname: '/productdtl',
@@ -29,7 +29,7 @@ const ProductCardList = (props) => {
                                 }}>
                     <div className="Card-info">
                         <div>{title}</div>
-                        <div>{cost}</div>
+                        <div>$ {cost} MXN</div>
                     </div>
                 </Link>
                 <div className="Card-add-to-cart">

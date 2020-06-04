@@ -11,6 +11,8 @@ const ProductCardSearchList = (props) => {
 
           if(description.length > 30){
               new_description = description.substring(0, 30) + "...";
+          }else{
+              new_description = description;
           }
       }
 
@@ -19,7 +21,7 @@ const ProductCardSearchList = (props) => {
         <section className="Card-product-search">
             <div className="Card-search__container">
                     <div className="Card-search__image">
-                        <img src={url? url+'png':url_dummy_img} alt="our goods"/> 
+                        <img src={url? url:url_dummy_img} alt="our goods"/> 
                     </div>
                     <div className="Card-search__info">
                         <Link to={{
@@ -27,7 +29,7 @@ const ProductCardSearchList = (props) => {
                                     product:props
                                 }}   className="Card-search__title"><div>{title}</div></Link>
                         <div>{new_description}</div>
-                        <div>{cost} MXN</div>
+                        <div>$ {cost} MXN</div>
                     </div>
             </div>
         </section>

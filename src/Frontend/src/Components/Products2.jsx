@@ -4,7 +4,7 @@ import ListProductsSearch from '../Containers/listProductsSearch'
 import Header from '../Components/Header';
 import SearchBar from './SearchBar';
 
-const api_search_products = 'http://127.0.0.1:3005/api/products/search/';
+const api_search_products = 'https://api.kod3rsstore.com/api/products/search/';
 
 const dataProduct = {
   body: [
@@ -31,7 +31,6 @@ function Products1(word) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const current_word = word.location.word;
-  console.log(current_word)
 
   useEffect(() => {
     setProducts([]);
