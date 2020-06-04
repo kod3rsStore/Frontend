@@ -8,6 +8,8 @@ services:
       context: ./src/SSR-server
       dockerfile: Dockerfile
     environment:
+      - PORT=${PORT}
+      - ENV=${ENV}
       - API_URL=${API_URL}
       - API_KEY_TOKEN=${API_KEY_TOKEN}
       - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
