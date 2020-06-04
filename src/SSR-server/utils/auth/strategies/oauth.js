@@ -19,23 +19,30 @@ const oAuth2Strategy = new OAuth2Strategy(
     callbackURL: "/auth/google-oauth/callback"
   },
   async function(accessToken, refreshToken, profile, cb) {
-    const { data, status } = await axios({
-      url: `${config.apiUrl}/api/auth/sign-provider`,
-      method: "post",
-      data: {
-        first_name: profile.name,
-        email: profile.email,
-        password: profile.id,
-        photo: profile.photo,
-        apiKeyToken: config.apiKeyToken
-      }
-    });
+    try{
+      console.log(`${config.apiUrl}/api/auth/sign-provider`);
+      const { data, status } = await axios({
+        url: `${config.apiUrl}/api/auth/sign-provider`,
+        method: "post",
+        data: {
+          first_name: profile.name,
+          email: profile.email,
+          password: profile.id,
+          photo: profile.photo,
+          apiKeyToken: config.apiKeyToken
+        }
+      });
 
-    if (!data || status !== 200) {
-      return cb(boom.unauthorized(), false);
+      if (!data || status !== 200) {
+        return cb(boom.unauthorized(), false);
+      }
+
+      return cb(null, data);
+
+    }catch(error){
+      console.log(error);
     }
 
-    return cb(null, data);
   }
 );
 
