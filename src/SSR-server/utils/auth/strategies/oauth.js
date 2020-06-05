@@ -5,6 +5,7 @@ const { OAuth2Strategy } = require("passport-oauth");
 
 const { config } = require("../../../config");
 
+
 const GOOGLE_AUTHORIZATION_URL = "https://accounts.google.com/o/oauth2/v2/auth";
 const GOOGLE_TOKEN_URL = "https://www.googleapis.com/oauth2/v4/token";
 const GOOGLE_USERINFO_URL = "https://www.googleapis.com/oauth2/v3/userinfo";
@@ -15,26 +16,33 @@ const oAuth2Strategy = new OAuth2Strategy(
     tokenURL: GOOGLE_TOKEN_URL,
     clientID: config.googleClientId,
     clientSecret: config.googleClientSecret,
-    callbackURL: "/auth/google-oauth/callback"
+    callbackURL: `${config.ssrUrl}/auth/google-oauth/callback`
   },
   async function(accessToken, refreshToken, profile, cb) {
-    const { data, status } = await axios({
-      url: `${config.apiUrl}/api/auth/sign-provider`,
-      method: "post",
-      data: {
-        first_name: profile.name,
-        email: profile.email,
-        password: profile.id,
-        photo: profile.photo,
-        apiKeyToken: config.apiKeyToken
-      }
-    });
+    try{
+      console.log(`${config.apiUrl}/api/auth/sign-provider`);
+      const { data, status } = await axios({
+        url: `${config.apiUrl}/api/auth/sign-provider`,
+        method: "post",
+        data: {
+          first_name: profile.name,
+          email: profile.email,
+          password: profile.id,
+          photo: profile.photo,
+          apiKeyToken: config.apiKeyToken
+        }
+      });
 
-    if (!data || status !== 200) {
-      return cb(boom.unauthorized(), false);
+      if (!data || status !== 200) {
+        return cb(boom.unauthorized(), false);
+      }
+
+      return cb(null, data);
+
+    }catch(error){
+      console.log(error);
     }
 
-    return cb(null, data);
   }
 );
 

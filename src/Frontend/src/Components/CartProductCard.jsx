@@ -39,7 +39,7 @@ const CartProductCard = (props) => {
         <section className="Card-product-cart">
             <div className="Card-cart__container">
                 <div className="Card-cart__image">
-                    <img src={url? url+'png':url_dummy_img} alt="our goods"/> 
+                    <img src={url? url:url_dummy_img} alt="our goods"/> 
                 </div>
                 <div className="Card-cart__info">
                     <Link to={{

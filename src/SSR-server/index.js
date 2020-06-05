@@ -229,6 +229,9 @@ productsAPI(app);
 categoriesAPI(app);
 addressesAPI(app);
 shopCartAPI(app);
+app.get('/', (req, res) => {
+  res.send(`API auth v 0.01`);
+});
 
 app.listen(PORT, (err) => {
     if(err) console.error(err);
