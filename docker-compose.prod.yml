@@ -15,24 +15,25 @@ services:
       - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
       - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
     deploy:
+      networks:
+        - default
+        - traefik-public      
       placement:
         constraints:
           - node.role == worker
-          labels:
-            - traefik.enable=true
-            - traefik.docker.network=traefik-public
-            - traefik.constraint-label=traefik-public
-            - traefik.http.routers.front-http.rule=Host(`kod3rsstore.com`)
-            - traefik.http.routers.front-http.entrypoints=http
-            - traefik.http.routers.front-http.middlewares=https-redirect
-            - traefik.http.routers.front-https.rule=Host(`kod3rsstore.com`)
-            - traefik.http.routers.front-https.entrypoints=https
-            - traefik.http.routers.front-https.tls=true
-            - traefik.http.routers.front-https.tls.certresolver=le
-            - traefik.http.services.front.loadbalancer.server.port=4000
-    networks:
-      - default
-      - traefik-public
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=traefik-public
+        - traefik.constraint-label=traefik-public
+        - traefik.http.routers.front-http.rule=Host(`kod3rsstore.com`)
+        - traefik.http.routers.front-http.entrypoints=http
+        - traefik.http.routers.front-http.middlewares=https-redirect
+        - traefik.http.routers.front-https.rule=Host(`kod3rsstore.com`)
+        - traefik.http.routers.front-https.entrypoints=https
+        - traefik.http.routers.front-https.tls=true
+        - traefik.http.routers.front-https.tls.certresolver=le
+        - traefik.http.services.front.loadbalancer.server.port=4000
+
 networks:
   traefik-public:
     external: true

@@ -61,8 +61,6 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
-* **Andres Alba**  [Lithyablake](https://github.com/andresalba)
-* **Mariana Cortes**  [Lithyablake](https://github.com/Lithyablake)
 * **Luis Antonio Rodriguez Garcia**  [Luisrdz5](https://github.com/luisrdz5)
 * **Wilson Antury**  [Wilantury](https://github.com/wilantury)
 
