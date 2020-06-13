@@ -18,7 +18,7 @@ services:
     container_name: frontend 
     stdin_open: true
     build:
-      context: ./src/Frontend
+      context: ./src/frontend
       dockerfile: Dockerfile
     ports:
-      - '3000:3000'
+      - '8080:8080'

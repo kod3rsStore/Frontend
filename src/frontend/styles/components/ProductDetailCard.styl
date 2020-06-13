@@ -1,0 +1,103 @@
+@import '../Variables.styl'
+
+.Card
+ &-detail__title
+  font-size x-large
+
+ &-detail__btn-cart
+  display flex
+  flex-direction row
+  align-items center
+
+ &-detail_remove-btn
+  width 30px
+  height 30px
+  border solid gray 2px
+  border-radius 50px 0px 0px 50px
+  text-align center
+  font-size x-large
+  font-weight 600
+
+ &-detail_add-btn
+  width 30px
+  height 30px
+  border solid gray 2px
+  border-radius 0px 50px 50px 0px
+  text-align center
+  font-size x-large
+  font-weight 600
+
+ &-detail_qty
+  width 30px
+  height 30px
+  border-top solid gray 2px
+  border-bottom solid gray 2px
+  text-align center
+  label
+   height 100%
+   width 100%
+   font-size x-large
+
+ &-detail__add-to-cart
+  margin 20px 0 0 0
+  display flex
+  align-items center
+  justify-content center
+  width 210px
+  height 35px
+  background #d1d633
+  border-radius 7px
+  margin-left 11px
+  label
+   font-size large
+
+ &-detail__add-to-cart active
+  background-color #c7c97f
+
+   
+
+
+   
+
+ &-detail-product{
+   width 100%
+   display flex
+   justify-content center
+   margin-top 15px
+ }
+ &-detail-container{
+   width 90%
+   display flex
+   flex-direction column
+   align-items center
+ }
+
+ &-detail__title{
+   width 100%
+   height 30px
+   color black
+   text-align center
+ }
+ &-detail__image{
+   text-align center 
+   width 100%
+ }
+ &-detail__image img{
+   width 100%
+   height 300px
+   object-fit cover
+ }
+
+ &-detail__price{
+   display flex
+   width 100%
+   font-size xx-large
+   padding 5px
+   justify-content center
+ }
+
+ &-detail__description{
+   width 100%
+   height 60px
+   padding 10px
+ }
