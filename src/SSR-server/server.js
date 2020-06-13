@@ -90,16 +90,21 @@ const renderApp = (req, res) => {
 
   let initState;
 
-  //getting the user data 
+  //getting the user data
   const { email, first_name, id_users, photo, cart } = req.cookies;
-
+  let validatedCart;
+  if (!cart) {
+    validatedCart = [{}];
+  } else {
+    validatedCart = cart;
+  }
   if (id_users) {
     initState = {
       ...initialState,
       user: {
         email, first_name, id_users, photo,
       },
-      cart: JSON.parse(cart),
+      cart: JSON.parse(validatedCart),
     };
   } else {
     initState = initialState;

@@ -1,18 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../styles/components/ShowProfile.styl';
+import avatarGrey from '../assets/images/avatar-grey.png';
 
 const ShowProfile = (props) => {
   const { user } = props;
 
   return (
     <div className='Profile__card'>
-      <img src={user[0].photo} alt={user[0].first_name} />
-      <h1>{user[0].first_name}</h1>
-      <p className='Profile__card--title'>{user[0].email}</p>
+      <img src={user.photo ? user.photo : avatarGrey} alt={user.first_name} />
+      <h1>{user.first_name}</h1>
+      <p className='Profile__card--title'>{user.email}</p>
       <p>
         internal id:
-        {user[0].id_users}
+        {user.id_users}
       </p>
     </div>
   );

@@ -1,16 +1,15 @@
 version: "3.7"
 
 services:
-  backend_ssr:
-    image: '${CI_REGISTRY_IMAGE}/ssr:latest'
-    container_name: backend-ssr
+  frontend:
+    image: '${CI_REGISTRY_IMAGE}/frontend:latest'
+    container_name: frontend
     build:
-      context: ./src/SSR-server
+      context: ./
       dockerfile: Dockerfile
     environment:
       - PORT=${PORT}
-      - ENV=${ENV}
-      - SSR_URL=${SSR_URL}
+      - ENV=production
       - API_URL=${API_URL}
       - API_KEY_TOKEN=${API_KEY_TOKEN}
       - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
@@ -18,51 +17,22 @@ services:
     deploy:
       placement:
         constraints:
-          - node.role == worker       
-      labels:
-        - traefik.enable=true
-        - traefik.docker.network=traefik-public
-        - traefik.constraint-label=traefik-public
-        - traefik.http.routers.ssr-http.rule=Host(`ssr.kod3rsstore.com`)
-        - traefik.http.routers.ssr-http.entrypoints=http
-        - traefik.http.routers.ssr-http.middlewares=https-redirect
-        - traefik.http.routers.ssr-https.rule=Host(`ssr.kod3rsstore.com`)
-        - traefik.http.routers.ssr-https.entrypoints=https
-        - traefik.http.routers.ssr-https.tls=true
-        - traefik.http.routers.ssr-https.tls.certresolver=le
-        - traefik.http.services.ssr.loadbalancer.server.port=8000
+          - node.role == worker
+          labels:
+            - traefik.enable=true
+            - traefik.docker.network=traefik-public
+            - traefik.constraint-label=traefik-public
+            - traefik.http.routers.front-http.rule=Host(`kod3rsstore.com`)
+            - traefik.http.routers.front-http.entrypoints=http
+            - traefik.http.routers.front-http.middlewares=https-redirect
+            - traefik.http.routers.front-https.rule=Host(`kod3rsstore.com`)
+            - traefik.http.routers.front-https.entrypoints=https
+            - traefik.http.routers.front-https.tls=true
+            - traefik.http.routers.front-https.tls.certresolver=le
+            - traefik.http.services.front.loadbalancer.server.port=4000
     networks:
       - default
-      - traefik-public 
-  frontend:
-    image: '${CI_REGISTRY_IMAGE}/frontend:latest'
-    container_name: frontend 
-    stdin_open: true
-    build:
-      context: ./src/frontend
-      dockerfile: Dockerfile
-    deploy:
-      placement:
-        constraints:
-          - node.role == worker       
-      labels:
-        - traefik.enable=true
-        - traefik.docker.network=traefik-public
-        - traefik.constraint-label=traefik-public
-        - traefik.http.routers.front-http.rule=Host(`kod3rsstore.com`)
-        - traefik.http.routers.front-http.entrypoints=http
-        - traefik.http.routers.front-http.middlewares=https-redirect
-        - traefik.http.routers.front-https.rule=Host(`kod3rsstore.com`)
-        - traefik.http.routers.front-https.entrypoints=https
-        - traefik.http.routers.front-https.tls=true
-        - traefik.http.routers.front-https.tls.certresolver=le
-        - traefik.http.services.front.loadbalancer.server.port=8080
-    networks:
-      - default
-      - traefik-public     
+      - traefik-public
 networks:
   traefik-public:
     external: true
-        
-            
-  
