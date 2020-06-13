@@ -1,0 +1,46 @@
+@import '../Variables.styl'
+    
+.Main
+    &__Promotions
+        width $width-gallery
+        height $height-gallery
+        position relative
+        top:0px;
+        margin:auto;
+        img 
+            width $width-gallery
+            height $height-gallery
+            object-fit contain
+            position absolute
+            top 0
+            -webkit-animation-name fade
+            -webkit-animation-iteration-count infinite
+            -webkit-animation-duration 6s
+            animation-name fade
+            animation-iteration-count infinite
+            animation-duration 6s    
+@-webkit-keyframes fade 
+    0% {opacity: 0;}
+    20% {opacity: 1;}
+    33% {opacity: 1;}
+    53% {opacity: 0;}
+    100% {opacity: 0;}
+@keyframes fade 
+    0% {opacity: 0;}
+    20% {opacity: 1;}
+    33% {opacity: 1;}
+    53% {opacity: 0;}
+    100% {opacity: 0;}
+#f2 
+    -webkit-animation-delay: -4s;
+#f3 
+    -webkit-animation-delay: -2s;            
+
+@media only screen and (min-width 1200px) 
+    .Main
+        &__Promotions
+            width $width-gallery-big
+            height $height-gallery-big
+            img 
+                width $width-gallery-big
+                height $height-gallery-big              

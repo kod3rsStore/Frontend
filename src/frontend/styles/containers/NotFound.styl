@@ -1,0 +1,55 @@
+@import '../Variables.styl'
+
+@keyframes not-found {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(1);}
+  }
+  .animated {
+    animation-duration: 2.5s;
+    animation-fill-mode: both;
+    animation-iteration-count:infinite;
+  }
+  @keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(1);}
+  }
+  .not-found {
+    font-size: 100px;
+    text-align: center;
+    color: $blue3;
+    animation-name: pulse;
+    animation-duration: 1s;
+  }
+  .not-found__text{
+    font-size: 20px;
+    text-align: center;
+    color: $blue3;
+  }
+   .not-found__container{
+    background: linear-gradient($blue1,$grey1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0px 30px;
+    min-height: calc(100vh - 200px);
+  }
+  .not-found__footer{
+    background-color: $grey1;
+    display:flex;
+    align-items: center;
+    height: 200px;
+    width: 100%;
+  }
+  .not-found__footer a{
+    color: $blue3;
+    cursor: pointer;
+    font-size: 14px;
+    padding-left: 30px;
+    text-decoration: none;
+  }
+  .not-found__footer a:hover{
+    text-decoration: underline;
+  }

@@ -1,0 +1,73 @@
+@import '../Variables.styl'
+
+.Register  
+    margin 50px 0 0 0
+    display flex
+    align-items center
+    justify-content center
+    flex-direction column
+    padding 0px 30px
+    min-height calc(100vh - 200px)
+    input 
+        margin 10px 0px
+        background-color $background-color
+        border-left 0px
+        border-top 0px
+        border-right 0px
+        border 1px solid $button-color
+        border-radius 10px
+        font-size 16px
+        font-family $font-family
+        padding 0px 20px
+        outline none
+        height 45px
+        width 90%
+    button
+        background-color $button-color-secondary
+        border-radius 10px
+        border none
+        cursor pointer
+        color $text-color
+        font-size 16px
+        font-weight bold
+        font-family 'Muli', sans-serif
+        height 50px
+        letter-spacing 1px
+        margin 10px 0px
+        width 100%
+    h2 
+        text-align center
+  
+  
+    &__container 
+        background-color rgba(255,255,255,0.2)
+        border 2px solid white
+        border-radius 40px
+        color $text-color
+        padding 60px 68px 40px
+        min-height 500px
+        width 300px
+        display flex
+        justify-content space-around
+        flex-direction column
+  
+    &__container--form
+        display flex
+        flex-direction column
+    
+    &__container--form label
+        font-size 14px
+  
+    &__container--register
+        font-size 14px
+        text-align center
+  
+    &__container--register a 
+        font-size 16px
+        color $text-color
+        font-weight bold
+        text-decoration none
+  
+    &__container--register ahover 
+        text-decoration underline
+    
