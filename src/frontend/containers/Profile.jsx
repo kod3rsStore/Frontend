@@ -10,13 +10,15 @@ const Profile = (props) => {
   const { edit } = props.match.params;
 
   return (
-    <div className='Profile'>
+    <>
       <Header />
-      {edit === 'edit' ?
-        (<EditProfile />) :
-        (<ShowProfile />)}
+      <div className='Profile'>
+        {edit === 'edit' ?
+          (<EditProfile />) :
+          (<ShowProfile />)}
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
