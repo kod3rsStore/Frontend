@@ -3,14 +3,14 @@ const { OAuth2Strategy: GoogleStrategy } = require("passport-google-oauth");
 const axios = require('axios');
 const boom = require('@hapi/boom');
 
-const { config } = require("../../../config/index");
+const { config } = require("../../../../config/index");
 
 passport.use(
   new GoogleStrategy(
     {
       clientID: config.googleClientId,
       clientSecret: config.googleClientSecret,
-      callbackURL: `${config.ssrUrl}/auth/google/callback`
+      callbackURL: "/auth/google/callback"
     },
     async (accessToken, refreshToken, {_json: profile } , cb) => {
         try{

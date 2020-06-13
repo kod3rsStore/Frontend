@@ -39,7 +39,7 @@ services:
     container_name: frontend 
     stdin_open: true
     build:
-      context: ./src/Frontend
+      context: ./src/frontend
       dockerfile: Dockerfile
     deploy:
       placement:
@@ -56,7 +56,7 @@ services:
         - traefik.http.routers.front-https.entrypoints=https
         - traefik.http.routers.front-https.tls=true
         - traefik.http.routers.front-https.tls.certresolver=le
-        - traefik.http.services.front.loadbalancer.server.port=3000
+        - traefik.http.services.front.loadbalancer.server.port=8080
     networks:
       - default
       - traefik-public     

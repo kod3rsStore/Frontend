@@ -1,0 +1,67 @@
+@import '../Variables.styl'
+
+.Products
+  margin 150px 0 0 0
+  &-items
+    grid-template-columns 100%
+    grid-gap 1.5rem
+    grid-row-ga 1.5em
+    display grid
+  &-item
+    text-decoration none
+    box-shadow 8px 14px 38px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03)
+    border-radius 5px
+    margin 0 0 20px 0
+    position relative
+    grid-template-columns  repeat(2, minmax(40%, 60%))
+    display grid
+    &-info
+      padding 10px
+      h2
+        font-size 14px
+        font-weight bold
+        display flex
+        justify-content space-between
+        span
+          font-size 14px
+          color $button-color
+      p
+        font-size 14px
+        font-weight 300
+    img
+      width 100%
+      height 200px
+      border-radius 5px 5px 0 0
+      object-fit contain
+    button
+      width 100%
+      margin 0 0 10px 0
+      padding 10px
+      border-radius 5px
+      border 0px
+      outline 0
+      cursor pointer
+      font-size 14px
+      font-weight 300
+      background-color $button-color
+      &:hover
+        background-color rgba(39,44,49,.06)
+
+@media only screen and (min-width 400px) and (max-width 599px) 
+  .Products
+    &-item-info
+      h2
+        font-size 18px
+        span
+          font-size 18px
+          color $button-color
+@media only screen and (min-width 600px) and (max-width 1200px) 
+  .Products
+    &-items
+      grid-template-columns  repeat(2, minmax($width-gallery, $width-gallery-medium))
+      grid-template-rows  repeat(2, minmax($height-gallery, $height-gallery-medium))
+      grid-row-ga 4.5em
+@media only screen and (min-width 1200px) 
+  .Products
+    &-items
+      grid-template-columns repeat(3, 1fr)
