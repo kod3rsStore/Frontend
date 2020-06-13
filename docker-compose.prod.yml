@@ -15,9 +15,6 @@ services:
       - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID}
       - GOOGLE_CLIENT_SECRET=${GOOGLE_CLIENT_SECRET}
     deploy:
-      networks:
-        - default
-        - traefik-public      
       placement:
         constraints:
           - node.role == worker
@@ -33,7 +30,9 @@ services:
         - traefik.http.routers.front-https.tls=true
         - traefik.http.routers.front-https.tls.certresolver=le
         - traefik.http.services.front.loadbalancer.server.port=4000
-
+    networks:
+      - default
+      - traefik-public
 networks:
   traefik-public:
     external: true
