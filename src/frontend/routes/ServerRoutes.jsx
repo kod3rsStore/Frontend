@@ -4,7 +4,6 @@ import NotFound from '../containers/NotFound';
 import Login from '../containers/Login';
 import Register from '../containers/Register';
 import Home from '../containers/Home';
-import goHome from '../containers/goHome';
 import Profile from '../containers/Profile';
 
 const serverRoutes = (isLogged) => {
