@@ -29,7 +29,7 @@
     "@babel/register": "^7.10.1",
     "@hapi/boom": "^9.1.0",
     "asset-require-hook": "^1.2.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-loader": "^8.1.0",
     "cookie-parser": "^1.4.5",
     "css-loader": "^3.5.3",
